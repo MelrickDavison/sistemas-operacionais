@@ -3,7 +3,7 @@ echo "Digite a nota do primeiro Bimestre"
 read nota1
 echo "Digite a nota do segundo bimestre" 
 read nota2
-if [ $nota1 -lt 6 ]  && [  $nota2 -lt 6 ]
+if [ $nota1 -lt 6 ] && [ $nota2 -lt 6 ]
 	then 
 	if [ $nota1 -lt $nota2 ] 
 		then 
@@ -71,17 +71,21 @@ fi
 soma=$(($nota1 + $nota2 + $nota3 + $nota4))
 echo $soma
 m4=$(($soma/4))
-if [ $m4 -ge 6 ] then
-echo "Aluno aprovado com a média de $m4"
-else
-echo "Digite a nota da RF"
-read RF
-media=$(($m4 * 4 + $RF * 6))
-fi
-if [ $media -lt 6 ] then
-echo "Aluno reprovado com Média Final inferior a 6"
-else 
-echo "Aluno aprovado"
-fi
-
-
+	
+	if [ $m4 -ge 6 ] 
+	then
+		echo "Aluno aprovado com a média de $m4"
+	fi
+	if [ $m4 -lt 6 ] 
+	then
+		echo "Digite a nota da RF"
+		read RF
+		media=$((($m4 * 4 + $RF * 6)/10))
+	fi
+	echo $media
+	if [ $media -lt 6 ] then
+		echo "Aluno reprovado com Média Final inferior a 6"
+	fi
+	if [ $media -ge 6 ] 
+		echo "Aluno aprovado"
+	fi
