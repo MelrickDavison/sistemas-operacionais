@@ -2,9 +2,9 @@
 
 echo "Digite o nome do diretório";
 read name;
-if [-d $name]; then 
-	echo "O arquivo já existe";
+if [-d "$name"]; then 
+	echo "O diretório $name já existe";
 else 
 	mkdir $name;
-	echo "Arquivo criado";
+	echo "O diretório $name foi criado";
 fi
