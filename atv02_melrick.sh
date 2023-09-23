@@ -1,22 +1,23 @@
 #!/bin/bash
 
 opcao = $1
-nome = $2
 case opcao in
 --cria)
-if(-f $nome);
-then
+if(-f "$2"); then
 echo "Arquivo já existe";
 else
-touch $nome
-fi;;
+touch "$2"
+fi
+;;
 --apaga)
-rm $nome
-echo "Arquivo deletado;;
+rm "$2"
+echo "Arquivo $2 deletado"
+;;
 --renomeia)
-echo "Digite o novo nome"
-read rename
-mv $nome $rename;;
+mv "$2" "$3"
+echo "Arquivo $2 renomeado para $3"
+;;
 *)
-echo "Parâmetro inválido";;
+echo "Parâmetro inválido"
+;;
 esac
